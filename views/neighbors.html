@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <title>All Neighbors</title>
+</head>
+<body>
+  <h1>Here are all neighbors!</h1>
+  {{#neighborsData}}
+  <div>
+    <img src="../{{nei_image}}">
+    <h2><a href="/neighbors/{{id}}">{{nei_name}}</a></h2>
+  </div>
+  {{/neighborsData}}
+  <a href="/houses">Back to all Houses!</a>
+</body>
+</html>

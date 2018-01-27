@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <title>{{neighborData.name}}</title>
+</head>
+<body>
+  <h1>This is {{neighborData.nei_name}}</h1>
+  <img src="../{{neighborData.nei_image}}">
+  <h2>Species: {{neighborData.species}}</h2>
+  <h3>Lifestyle: {{neighborData.lifestyle}}</h3>
+  <h2>They are a neighbor of {{neighborData.name}}</h2>
+
+  <a href="/houses/{{neighborData.house_id}}">Back to the house</a>
+  <a href="/neighbors">See all Neighbors</a>
+  <a href="/houses">Back to all Houses!</a>
+  
+</body>
+</html>

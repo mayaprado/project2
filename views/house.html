@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <script src="/js/jquery.js"></script>
+  <title>House of your dreams!</title>
+</head>
+<body>
+  <h1>This is {{houseData.name}}</h1>
+  <input type="hidden" id="houseId" value=5>
+  <img src="../{{houseData.image}}">
+  <h2>The price is {{houseData.price}}</h2>
+  <h2>Address is {{houseData.address}}</h2>
+  <p>{{houseData.description}}</p>
+  <div id='streetview'>Here's the streetview!</div>
+  <ul>And here are the neighbors!</ul>
+  {{#neighborData}}
+    <li><img src="../{{nei_image}}"></li>
+    <a href="/neighbors/{{id}}">{{nei_name}}</a>
+  {{/neighborData}}
+  <a href="/houses">Back to All Houses!</a>
+    <script src="/js/script.js"></script>
+</body>
+</html>

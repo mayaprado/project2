@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>Welcome!</title>
+</head>
+<body>
+  <h1>Welcome to the First Martian Real Estate!</h1>
+  <h2>Here you can learn more about our offers and join us for an open house!</h2>
+  <h2>Here are our beautiful cottages for sale!</h2>
+  {{#housesData}}
+  <div>
+    <h3>{{name}}</h3>
+    <img src="{{image}}">
+    <h3>{{price}}</h3>
+    <a href="/houses/{{id}}">See detail!</a>
+  </div>
+  {{/housesData}}
+  
+</body>
+</html>
