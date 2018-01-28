@@ -7,10 +7,7 @@ $(document).ready(function() {
     }
   }
 
-  var houseId;
-
-  function getData() {
-    houseId = $('#houseId').val();
+  function getData(houseId) {
     $.ajax({
       method: 'GET',
       url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-08-${houseId}&camera=mast&api_key=yUr8T3TgSdw948TEBEsWXIUnTGaX5zXLXLsGl5Zm`,
@@ -23,5 +20,7 @@ $(document).ready(function() {
       },
     });
   }
-  getData();
+
+  var houseId = $('#houseId').val();
+  getData(houseId);
 });

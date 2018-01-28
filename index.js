@@ -36,10 +36,11 @@ app.listen(port, () => {
 
 const housesRouter = require('./controllers/houses.js');
 const neighborsRouter = require('./controllers/neighbors.js');
+const usersRouter = require('./controllers/users.js');
 
 app.use('/houses', housesRouter);
 app.use('/neighbors', neighborsRouter);
-// app.use('/users', require('./controllers/users.js'));
+app.use('/users', usersRouter);
 
 app.use((err, req, res, next) => {
   console.log('Error encountered:', err);
