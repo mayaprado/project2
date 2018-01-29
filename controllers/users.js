@@ -42,6 +42,7 @@ router.get(
     auth.restrict,
     user.findByEmailMiddleware,
     (req, res) => {
+        // res.json(res.locals.userData);
         res.render('users/profile', { user: res.locals.userData });
     }
 );

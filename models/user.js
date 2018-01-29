@@ -38,8 +38,8 @@ user.addHouse = function addHouse(user_id, house_id) {
 };
 
 user.addHouseMiddleware = function addHouseMiddleware(req, res, next) {
-    const user_id = data.user_id;
-    const house_id = data.house_id;
+    const user_id = req.body.user_id;
+    const house_id = req.body.house_id;
     user
         .addHouse(user_id, house_id)
         .then(userData => {

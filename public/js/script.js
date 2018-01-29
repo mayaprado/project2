@@ -3,9 +3,9 @@ $(document).ready(function() {
   $likeForm.submit(e => {
     e.preventDefault();
     var data = {};
-    const house_name = $likeForm.serialize().split('=')[1];
+    const house_id = $likeForm.serialize().split('=')[1];
     const user_id = $('#userId').val();
-    data = { house_name: house_name, user_id: user_id };
+    data = { user_id: user_id, house_id: house_id };
     $.ajax({
       url: `/users/profile`,
       data: data,
