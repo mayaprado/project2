@@ -13,7 +13,10 @@ user.create = function create(user) {
 };
 
 user.findByEmail = function findByEmail(email) {
-    return db.oneOrNone('SELECT * FROM users WHERE email = $1;', [email]);
+    return db.oneOrNone(
+        'SELECT * FROM users JOIN fav_houses ON users.id = fav_houses.user_id JOIN houses ON fav_houses.house_id = houses.id WHERE email = $1;',
+        [email]
+    );
 };
 
 user.findByEmailMiddleware = function findByEmailMiddleware(req, res, next) {
@@ -27,17 +30,18 @@ user.findByEmailMiddleware = function findByEmailMiddleware(req, res, next) {
         .catch(err => console.log('ERROR:', err));
 };
 
-user.findHouses = function findHouse(id) {
-    return db.oneOrNone(
-        'SELECT * FROM users JOIN fav_houses ON users.id = fav_houses.user_id JOIN houses ON fav_houses.house_id = houses.id WHERE users.id = $1;',
-        [id]
+user.addHouse = function addHouse(user_id, house_id) {
+    return db.one(
+        'INSERT INTO fav_houses (user_id, house_id) VALUES ($1, $2) RETURNING *;',
+        [user_id, house_id]
     );
 };
 
-user.findHouseMiddleware = function findHouseMiddleware(req, res, next) {
-    const id = req.user.id;
+user.addHouseMiddleware = function addHouseMiddleware(req, res, next) {
+    const user_id = data.user_id;
+    const house_id = data.house_id;
     user
-        .findHouse(id)
+        .addHouse(user_id, house_id)
         .then(userData => {
             res.locals.userData = userData;
             next();

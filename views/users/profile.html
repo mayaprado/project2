@@ -14,8 +14,25 @@
     <main>
         <section>
             Welcome to your profile, {{user.email}}
+            <input type="hidden" id="userId" value={{user.id}}>
+            <form id='like' action="POST">ADD A HOUSE TO YOUR WISH LIST:
+                <select name='name'>
+                    <option>Milky Way Cottage</option>
+                    <option>Moon River Cottage</option>
+                    <option>Gagarin Rocks Cottage</option>
+                    <option>Black Hole Cottage</option>
+                    <option>Cassiopeia Cottage</option>
+                    <option>Ursa Major Cottage</option>
+                </select>
+                <input type="submit" name="submit">
+            </form>
+            <ol>Here are the houses you added to your Wish List:
+                <li>
+                </li>
+            </ol>
+
             <div>
-                <a href="/users/logout">Logout</a>
+                <a href="/houses">Logout</a>
             </div>
         </section>
     </main>

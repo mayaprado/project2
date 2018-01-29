@@ -46,8 +46,12 @@ router.get(
     }
 );
 
-router.get('/houses', auth.restrict, user.findHouses, (req, res) => {
-    res.render('houses', { beersData: res.locals.userData });
+// router.get('/houses', auth.restrict, user.findHouses, (req, res) => {
+//     res.render('houses', { beersData: res.locals.userData });
+// });
+
+router.post('/profile', user.addHouseMiddleware, (req, res) => {
+    res.render('users/profile', { user: res.locals.userData });
 });
 
 module.exports = router;
