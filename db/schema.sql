@@ -37,3 +37,16 @@ CREATE TABLE fav_houses (
   user_id INTEGER REFERENCES users,
   house_id INTEGER REFERENCES houses
 );
+
+DROP TABLE IF EXISTS pictures CASCADE;
+
+CREATE TABLE pictures (
+  id SERIAL PRIMARY KEY,
+  url VARCHAR(255)
+);
+
+
+
+
+
+

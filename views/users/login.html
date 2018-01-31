@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Login User</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Raleway" rel="stylesheet">
 </head>
 <body>
   <main>
@@ -12,13 +13,14 @@
       <h1>Login</h1>
       <form action="/users/login" method="POST">
         <label for="email">Email</label><br>
-        <input id="email" type="text" name="user[email]" placeholder="john.doe@example.com"><br>
+        <input id="email" type="text" name="user[email]" placeholder="email@example.com"><br>
         <label for="password">Password</label><br>
-        <input id="password" type="password" name="user[password]" placeholder="P4ssw0rd1234"><br>
-        <input type="submit" value="Login">
+        <input id="password" type="password" name="user[password]" placeholder="password"><br>
+        <input id="button" type="submit" value="Login">
       </form>
       <div>
         <a href="/users/new">Sign Up</a>
+        <a href="/houses">Back to Houses</a>
       </div>
     </section>
   </main>

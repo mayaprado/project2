@@ -1,4 +1,103 @@
 img {
-  max-width: 300px;
-  max-height: 300px;
+  width: 485px;
+  max-height: 600px;
+  border: 7.5px ivory solid;
+  border-radius: 30px;
+}
+
+body {
+  background-image: url('../images/mars.png');
+  background-attachment: fixed;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+main {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 72px;
+  color: ivory;
+  text-shadow: -1px 0 #f7e391, 0 1px #f7e391, 1px 0 #f7e391, 0 -1px #f7e391;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 28px;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+  border: 2px ivory solid;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+div {
+  font-family: 'Raleway', sans-serif;
+}
+
+form {
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  padding: 20px;
+}
+
+input {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  padding: 12px;
+}
+
+option {
+  padding: 7px;
+  font-size: 15px;
+}
+
+.streetview-container img {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  border: 0px ivory solid;
+  border-radius: 0%;
+}
+
+.streetview-container img:hover {
+  width: 300px;
+  height: 300px;
+}
+
+.streetview-container {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px black solid;
+}
+
+ul {
+  list-style-type: none;
 }

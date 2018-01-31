@@ -6,6 +6,10 @@ const mustacheExpress = require('mustache-express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 8080;
+var cc = require('currency-converter')({
+  CLIENTKEY: 'e078470a907d46ee9cfd96dda585d5f7',
+  fetchInterval: 3600000,
+});
 
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
@@ -18,6 +22,10 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+cc.convert(100, 'USD', 'EUR').then(function(result) {
+  console.log(result.amount);
+});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

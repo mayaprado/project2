@@ -3,83 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Raleway" rel="stylesheet">
   <script src="/js/jquery.js"></script>
   <title>House of your dreams!</title>
 </head>
 <body>
-  <h1>This is {{houseData.name}}</h1>
-  <input type="hidden" id="houseId" value="{{houseData.id}}">
-  <img src="../{{houseData.image}}">
-  <h2>The price is {{houseData.price}}</h2>
-  <h2>Address is {{houseData.address}}</h2>
-  <p>{{houseData.description}}</p>
-  <form id="like" action="POST">
-  </form>
-  <div id='streetview'>Check out the streetview on any date you want!
-    <form id="date" action="GET">PICK A DATE!
-      <select name="year">
-        <option>2012</option>
-        <option>2013</option>
-        <option>2014</option>
-        <option>2015</option>
-        <option>2016</option>
-      </select>
-      <select name="month">
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-      </select>
-      <select name="date">
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-        <option>21</option>
-        <option>22</option>
-        <option>23</option>
-        <option>24</option>
-        <option>25</option>
-        <option>26</option>
-        <option>27</option>
-        <option>28</option>
-        <option>29</option>
-        <option>30</option>
-        <option>31</option>
-      </select>
-      <input type="submit" name="submit">
+  <main>
+    <h1>This is {{houseData.name}}</h1>
+    <input type="hidden" id="houseId" value="{{houseData.id}}">
+    <img src="../{{houseData.image}}">
+    <h2>The price is {{houseData.price}}</h2>
+    <h2>Address is {{houseData.address}}</h2>
+    <p>{{houseData.description}}</p>
+    <form id="like" action="POST">
     </form>
-  </div>
-  <ul>And here are the neighbors!</ul>
-  {{#neighborData}}
-    <li><img src="../{{nei_image}}"></li>
-    <a href="/neighbors/{{id}}">{{nei_name}}</a>
-  {{/neighborData}}
-  <a href="/houses">Back to All Houses!</a>
-  <script src="/js/script.js"></script>
+    <div id='streetview'>Check out the streetview on any date you want!
+      <form id="date" action="GET">PICK A DATE!
+        <select name="year">
+          <option>2012</option>
+          <option>2013</option>
+          <option>2014</option>
+          <option>2015</option>
+          <option>2016</option>
+        </select>
+        <select name="month">
+          <option>01</option>
+          <option>02</option>
+          <option>03</option>
+          <option>04</option>
+          <option>05</option>
+          <option>06</option>
+          <option>07</option>
+          <option>08</option>
+          <option>09</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+        </select>
+        <select name="date">
+          <option>01</option>
+          <option>02</option>
+          <option>03</option>
+          <option>04</option>
+          <option>05</option>
+          <option>06</option>
+          <option>07</option>
+          <option>08</option>
+          <option>09</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+          <option>22</option>
+          <option>23</option>
+          <option>24</option>
+          <option>25</option>
+          <option>26</option>
+          <option>27</option>
+          <option>28</option>
+          <option>29</option>
+          <option>30</option>
+          <option>31</option>
+        </select>
+        <input type="submit" name="submit">
+      </form>
+    </div>
+    <ul>And here are the neighbors!</ul>
+    {{#neighborData}}
+      <li><img src="../{{nei_image}}"></li>
+      <a href="/neighbors/{{id}}">{{nei_name}}</a>
+    {{/neighborData}}
+    <a href="/houses">Back to All Houses!</a>
+    <script src="/js/script.js"></script>
+  </main>
 </body>
 </html>

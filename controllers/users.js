@@ -1,4 +1,5 @@
 const user = require('../models/user.js');
+const pictureModel = require('../models/pictures.js');
 const router = require('express').Router();
 const passport = require('passport');
 
@@ -47,12 +48,36 @@ router.get(
     }
 );
 
+router.get(
+    '/favorites',
+    auth.restrict,
+    user.findHousesMiddleware,
+    (req, res) => {
+        // res.json(res.locals.favHouses);
+        res.render('users/favorites', { favHouses: res.locals.favHouses });
+    }
+);
+
+router.delete(
+    '/favorites',
+    auth.restrict,
+    user.destroyHouseMiddleware,
+    (req, res) => {
+        // res.json(res.locals.favHouses);
+        res.render('users/favorites', { favHouses: res.locals.favHouses });
+    }
+);
+
 // router.get('/houses', auth.restrict, user.findHouses, (req, res) => {
 //     res.render('houses', { beersData: res.locals.userData });
 // });
 
 router.post('/profile', user.addHouseMiddleware, (req, res) => {
     res.render('users/profile', { user: res.locals.userData });
+});
+
+router.post('/pictures', pictureModel.storeUrl, (req, res) => {
+    res.json({});
 });
 
 module.exports = router;

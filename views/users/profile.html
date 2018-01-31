@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>User Profile</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron|Raleway" rel="stylesheet">
     <script src="/js/jquery.js"></script>
     <script src="/js/script.js"></script>
 </head>
 
 <body>
     <main>
-        <section>
-            Welcome to your profile, {{user.email}}
-            <input type="hidden" id="userId" value={{user.user_id}}>
+            <h1>Welcome to your profile, {{user.email}}</h1>
+            <input type="hidden" id="userId" value={{user.id}}>
             <form id='like' action="POST">ADD A HOUSE TO YOUR WISH LIST:
                 <select name='name'>
                     <option value='1'>Milky Way Cottage</option>
@@ -26,15 +26,70 @@
                 </select>
                 <input type="submit" name="submit">
             </form>
-            <ol>Here are the houses you added to your Wish List:
-                <li>
-                </li>
-            </ol>
-
+    <div id='pictureDay'>Check out a picture of the day!
+        <form id="pictureDayPick" action="GET">PICK A DATE!
+            <select name="year">
+              <option>2012</option>
+              <option>2013</option>
+              <option>2014</option>
+              <option>2015</option>
+              <option>2016</option>
+              <option>2017</option>
+            </select>
+            <select name="month">
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+            </select>
+            <select name="date">
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+              <option>24</option>
+              <option>25</option>
+              <option>26</option>
+              <option>27</option>
+              <option>28</option>
+              <option>29</option>
+              <option>30</option>
+              <option>31</option>
+            </select>
+        <input type="submit" name="submit">
+      </form>
+    </div>
+            <a href="/users/favorites">Here is your Wish List</a>
             <div>
                 <a href="/houses">Logout</a>
             </div>
-        </section>
     </main>
 </body>
 
