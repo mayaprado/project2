@@ -6,10 +6,14 @@ const mustacheExpress = require('mustache-express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 8080;
+const dotenv = require('dotenv').config();
 var cc = require('currency-converter')({
-  CLIENTKEY: 'e078470a907d46ee9cfd96dda585d5f7',
+  CLIENTKEY: process.env.THE_CURR_KEY,
   fetchInterval: 3600000,
 });
+
+console.log(process.env.THE_CURR_KEY);
+console.log(process.env.THE_API_KEY);
 
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
@@ -22,10 +26,6 @@ app.use(
     saveUninitialized: true,
   })
 );
-
-cc.convert(100, 'USD', 'EUR').then(function(result) {
-  console.log(result.amount);
-});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -49,6 +49,19 @@ const usersRouter = require('./controllers/users.js');
 app.use('/houses', housesRouter);
 app.use('/neighbors', neighborsRouter);
 app.use('/users', usersRouter);
+app.get('/convertion', (req, res, next) => {
+  const amount = req.query.amount;
+  const from = req.query.from;
+  const to = req.query.to;
+  cc
+    .convert(amount, from, to)
+    .then(function(result) {
+      res.json(result);
+    })
+    .catch(err => {
+      res.json({ error: err });
+    });
+});
 
 app.use((err, req, res, next) => {
   console.log('Error encountered:', err);

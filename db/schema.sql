@@ -42,7 +42,9 @@ DROP TABLE IF EXISTS pictures CASCADE;
 
 CREATE TABLE pictures (
   id SERIAL PRIMARY KEY,
-  url VARCHAR(255)
+  user_id INTEGER REFERENCES users,
+  url VARCHAR(255), 
+  favorite BOOLEAN
 );
 
 

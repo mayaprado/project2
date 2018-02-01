@@ -80,4 +80,12 @@ router.post('/pictures', pictureModel.storeUrl, (req, res) => {
     res.json({});
 });
 
+router.get('/pictures', pictureModel.read, (req, res) => {
+    res.render('users/pictures', { pictures: res.locals.pictures });
+});
+
+router.put('/pictures', pictureModel.update, (req, res) => {
+    res.render('users/pictures', { pictures: res.locals.pictures });
+});
+
 module.exports = router;

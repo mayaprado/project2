@@ -1,8 +1,8 @@
 img {
   width: 485px;
   max-height: 600px;
-  border: 7.5px ivory solid;
-  border-radius: 30px;
+  border: 7.5px rgba(255, 255, 255, 0.5) solid;
+  /*  border-radius: 30px;*/
 }
 
 body {
@@ -31,21 +31,25 @@ h2 {
   font-family: 'Orbitron', sans-serif;
   font-size: 32px;
   font-weight: bold;
+  color: ivory;
 }
 
 h3 {
   font-family: 'Orbitron', sans-serif;
   font-size: 32px;
   font-weight: bold;
+  color: ivory;
 }
 
 h4 {
   font-family: 'Orbitron', sans-serif;
   font-size: 28px;
+  color: ivory;
 }
 
 p {
   font-family: 'Raleway', sans-serif;
+  color: ivory;
 }
 
 a {
@@ -57,10 +61,17 @@ a {
   border: 2px ivory solid;
   border-radius: 10px;
   margin: 10px;
+  color: ivory;
+}
+
+a:after {
+  color: ivory;
+  font-weight: bold;
 }
 
 div {
   font-family: 'Raleway', sans-serif;
+  color: ivory;
 }
 
 form {
@@ -78,6 +89,7 @@ input {
 option {
   padding: 7px;
   font-size: 15px;
+  color: ivory;
 }
 
 .streetview-container img {
@@ -100,4 +112,8 @@ option {
 
 ul {
   list-style-type: none;
+}
+
+form {
+  color: ivory;
 }

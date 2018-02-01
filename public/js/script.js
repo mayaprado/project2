@@ -18,6 +18,22 @@ $(document).ready(function() {
     });
   });
 
+  const $hideButton = $('.hideThis');
+  $hideButton.click(e => {
+    e.preventDefault();
+    var picId = e.target.getAttribute('value');
+    $(`#${picId}`).remove();
+    $.ajax({
+      url: `/users/pictures`,
+      data: { picId },
+      type: 'PUT',
+      success: function(data) {
+        window.location.href = `/users/pictures`;
+      },
+      error: function(xhr, status, error) {},
+    });
+  });
+
   const $delete = $('.delete');
   $delete.click(e => {
     e.preventDefault();
@@ -36,29 +52,31 @@ $(document).ready(function() {
     });
   });
 
-  // const $likeList = $('#likeList');
-  // $('.likeItem').remove();
-  // function addLikes(data) {
-  //   for (var i = 0; i < data.length; i++) {
-  //     $likeList
-  //       .append('<li>')
-  //       .attr('class', 'likeItem')
-  //       .text(data.name);
-  //   }
-  // }
-  // function getFavs() {
-  //   $.ajax({
-  //     method: 'GET',
-  //     url: ``,
-  //     success: function(data) {
-  //       renderView(data);
-  //     },
-  //     error: function(jqxhr, status, errorThrown) {
-  //       console.log('oops an error. Status:', status);
-  //       console.log('errorThrown:', errorThrown);
-  //     },
-  //   });
-  // }
+  const $money = $('#money');
+  $money.submit(e => {
+    e.preventDefault();
+    const curr = $('#curencies').val();
+    const amount = $('#price')
+      .val()
+      .split('$')[1];
+    console.log(curr, amount);
+    $.ajax({
+      url: `/convertion`,
+      data: {
+        amount: amount,
+        from: 'USD',
+        to: curr,
+      },
+      method: 'GET',
+      success: function(response) {
+        console.log('result:', response);
+        $('#pricetag').text(
+          'The price is ' + response.symbol + ' ' + response.amount
+        );
+      },
+      error: function(xhr, status, error) {},
+    });
+  });
 
   const $dateForm = $('#date');
   $dateForm.submit(e => {
@@ -70,6 +88,7 @@ $(document).ready(function() {
       $('#streetview').append($('<div>').attr('class', 'streetview-container'));
       for (var i = 0; i < 10; i++) {
         let image = data.photos[i].img_src;
+        console.log('image: ' + image);
         $('.streetview-container').append($(`<img src='${image}'>`));
       }
     }
@@ -96,11 +115,8 @@ $(document).ready(function() {
   const $pictureForm = $('#pictureDayPick');
   $pictureForm.submit(e => {
     e.preventDefault();
-    var date = {};
-    date = $pictureForm.serialize();
-    console.log(date.split('=')[1].split('&')[0]);
-    console.log(date.split('=')[2].split('&')[0]);
-    console.log(date.split('=')[3].split('&')[0]);
+    var picdate = {};
+    picdate = $pictureForm.serialize();
     function renderPicture(data) {
       $('.picture-container').remove();
       $('#pictureDay').append($('<div>').attr('class', 'picture-container'));
@@ -121,13 +137,13 @@ $(document).ready(function() {
       });
     }
 
-    function getPicture(date) {
+    function getPicture(picdate) {
       $.ajax({
         method: 'GET',
         url: `https://api.nasa.gov/planetary/apod?date=${
-          date.split('=')[1].split('&')[0]
-        }-${date.split('=')[2].split('&')[0]}-${
-          date.split('=')[3].split('&')[0]
+          picdate.split('=')[1].split('&')[0]
+        }-${picdate.split('=')[2].split('&')[0]}-${
+          picdate.split('=')[3].split('&')[0]
         }&api_key=yUr8T3TgSdw948TEBEsWXIUnTGaX5zXLXLsGl5Zm`,
         success: function(data) {
           renderPicture(data);
@@ -139,6 +155,6 @@ $(document).ready(function() {
         },
       });
     }
-    getPicture(date);
+    getPicture(picdate);
   });
 });

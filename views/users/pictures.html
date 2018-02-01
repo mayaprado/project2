@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wish List</title>
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Raleway" rel="stylesheet">
+  <script src="/js/jquery.js"></script>
+  <script src="/js/script.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Pictures of the Day:</h1>
+    <ul>
+    {{#pictures}}
+    <li id='{{id}}'><img src="{{url}}"></li>
+    <button class='hideThis' value="{{id}}">Hide!</button>
+    {{/pictures}}
+    </ul>
+    <a href="/users/profile">Back to your profile!</a>
+ </main>
+</body>
+</html>

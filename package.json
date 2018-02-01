@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "Project II",
   "main": "index.js",
+  "engines": {
+    "node": "9.5.0"
+  },
   "scripts": {
     "dev": "nodemon -e html,css,js index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,7 @@
     "bunyan": "^1.8.12",
     "cookie-parser": "^1.4.3",
     "currency-converter": "^0.1.12",
+    "dotenv": "^5.0.0",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "morgan": "^1.9.0",
