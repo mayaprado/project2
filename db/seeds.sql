@@ -1,4 +1,4 @@
-\c mars_db
+-- \c mars_db
 
 INSERT INTO houses (name, image, address, description, price) 
 VALUES 

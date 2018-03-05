@@ -1,4 +1,4 @@
-\c mars_db
+-- \c mars_db
 
 DROP TABLE IF EXISTS users CASCADE;
 

@@ -1,8 +1,7 @@
 # project2
 
-Project II - app GoMars
+Full Stack CRUD app - GoMars
 
-Explanations of the technologies used
 I used HTML, CSS, JavaScript, jQuery, Node.js, NPM packages:
 axios, bcryptjs, body-parser, cookie-parser, dotenv, express, express-session, morgan, mustache-express, passport, passport-local, pg-promise, currency-converter.
 
@@ -18,15 +17,4 @@ User Stories:
 
 5. As a user I want to be able to use some extra features that will make my experience with the app more pleasant. As an example - beautidful pictures related to space and Mars.
 
-The approach taken
-
-First I chose the API to use - api.nasa.gov.
-Then I built an MVC structure of my repository.
-Then I set up my database.
-Next step was setting up CRUD.
-Then I seeded my database with some information from API.
-Then I worked on CSS.
-Next step - I added npm package currency-exchange.
-Lastly, I deployed my app to Heroku.
-
-Any other useful information about your app
+A link to deployed app - https://go-mars.herokuapp.com/houses
